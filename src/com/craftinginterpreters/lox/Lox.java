@@ -1,4 +1,4 @@
-package com.Crafting_Interpreters.lox;
+package com.craftinginterpreters.lox;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.util.List;
 public class Lox {
     static boolean hadError = false;
 
-    public static void main(Stirng[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         if (args.length > 1) {
             System.out.println("Usage: jlox [script]");
             System.exit(64);
