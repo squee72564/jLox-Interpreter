@@ -16,7 +16,7 @@ public class GenerateAst {
         defineAst(outputDir, "Expr", Arrays.asList(
                 "Binary : Expr left, Token operator, Expr right",
                 "Grouping : Expr expression",
-                "Literal : Object Value",
+                "Literal : Object value",
                 "Unary : Token operator, Expr right"));
     }
 
@@ -54,6 +54,7 @@ public class GenerateAst {
             String typeName = type.split(":")[0].trim();
             writer.println(
                     "        R visit" + typeName + baseName + "(" + typeName + " " + baseName.toLowerCase() + ");");
+            writer.println();
         }
 
         writer.println("    }");
@@ -74,10 +75,10 @@ public class GenerateAst {
         writer.println("        }");
 
         writer.println();
-        writer.println("    @Override");
-        writer.println("    <R> R accept(Visitor<R> visitor) {");
-        writer.println("        return visitor.visit" + className + baseName + "(this);");
-        writer.println("    }");
+        writer.println("        @Override");
+        writer.println("        <R> R accept(Visitor<R> visitor) {");
+        writer.println("            return visitor.visit" + className + baseName + "(this);");
+        writer.println("        }");
 
         // Fields
         writer.println();
